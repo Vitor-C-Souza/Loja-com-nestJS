@@ -1,7 +1,7 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ProdutoRepository } from './produto.repository.js';
 
-@Controller('/produto')
+@Controller('/produtos')
 export class ProdutoController {
   constructor(private ProdutoRepository: ProdutoRepository) {}
   @Post()
@@ -10,6 +10,7 @@ export class ProdutoController {
     return ProdutoRecebido;
   }
 
+  @Get()
   async ListarProdutos() {
     return this.ProdutoRepository.listar();
   }
